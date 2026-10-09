@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 1rem;
+  }
+  .dark { --background: 222.2 47.4% 5%; --foreground: 210 40% 98%; --card: 222.2 47.4% 7%; --card-foreground: 210 40% 98%; --popover: 222.2 47.4% 7%; --popover-foreground: 210 40% 98%; --primary: 217.2 91.2% 59.8%; --primary-foreground: 222.2 47.4% 11.2%; --secondary: 217.2 32.6% 15%; --secondary-foreground: 210 40% 98%; --muted: 217.2 32.6% 15%; --muted-foreground: 215 20.2% 65.1%; --accent: 217.2 32.6% 15%; --accent-foreground: 210 40% 98%; --border: 217.2 32.6% 17.5%; --input: 217.2 32.6% 17.5%; --ring: 224.3 76.3% 48%; }
+  body { @apply bg-background text-foreground antialiased; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+}
+@layer components {
+  .glass-card { @apply border border-slate-200/80 bg-white/80 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/70; }
+  .nav-link { @apply relative rounded-lg py-2 text-sm font-semibold text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400; }
+  .nav-link-active { @apply text-blue-600 dark:text-blue-400; }
+  .primary-btn { @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 font-bold text-white shadow-lg shadow-blue-500/20 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25 disabled:cursor-not-allowed disabled:opacity-60; }
+  .secondary-btn { @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800; }
+  .section-kicker { @apply inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[.14em] text-blue-700 dark:bg-blue-950/50 dark:text-blue-300; }
+  .section-title { @apply mt-4 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl; }
+  .section-copy { @apply mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300; }
+  .icon-box { @apply grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/60 dark:text-blue-400; }
+  .upload-zone { @apply cursor-pointer rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/80 p-8 text-center transition hover:border-blue-400 hover:bg-blue-50/50 dark:border-slate-700 dark:bg-slate-950/50 dark:hover:border-blue-700 dark:hover:bg-blue-950/20; }
+  .upload-zone-active { @apply border-blue-500 bg-blue-50 dark:bg-blue-950/30; }
+  .gradient-text { @apply bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-400 bg-clip-text text-transparent; }
+  .status-dot { @apply inline-block h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,.12)]; }
+  .hero-grid { background-image: linear-gradient(rgba(59,130,246,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,.07) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
+}
+@media print {
+  nav, footer, button, a, .upload-zone, textarea { display: none !important; }
+  body { background: white !important; }
+  main { padding-top: 20px !important; }
+  .glass-card { box-shadow: none !important; }
+}
