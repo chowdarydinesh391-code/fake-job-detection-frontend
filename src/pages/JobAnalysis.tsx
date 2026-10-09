@@ -8,8 +8,12 @@ import DragDropUploader from "@/components/DragDropUploader";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/context/AuthContext";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:5000";
-const API_URL = import.meta.env.VITE_API_URL || `${API_BASE}/predict`;
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://fake-job-detection-backend-w5t3.onrender.com";
+
+const API_URL =
+  import.meta.env.VITE_API_URL || `${API_BASE}/predict`;
 const suspicious = ["payment", "urgent", "wire transfer", "no experience", "personal info", "limited time", "click here", "easy money", "registration fee", "whatsapp", "telegram", "otp", "bank details"];
 type Signal = { label: string; matches?: string[] };
 type Result = { isFake: boolean; score: number; confidence: number; reasons: string[]; signals: Signal[]; source: string; company: string; url: string };
